@@ -1,27 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Asha-ayurgabha</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asha Ayurgarbha - Ayurvedic Clinic</title>
     <style>
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f5f7f9;
-        font-family: Arial, sans-serif;
-      }
-      h1 {
-        color: #1f2937;
-        font-size: 2.5rem;
-        text-align: center;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c3b 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #a8d5a8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #4a7c3b 0%, #2d5016 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #f4a460;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .cta-button:hover {
+            background: #e8860a;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #2d5016;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #f4a460;
+            margin: 0.5rem auto 0;
+        }
+        
+        .services {
+            background: #f9f9f9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+        
+        .about {
+            background: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            color: #f4a460;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-top: 0.3rem;
+        }
+        
+        .about-image {
+            background: linear-gradient(135deg, #a8d5a8 0%, #4a7c3b 100%);
+            padding: 3rem;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact {
+            background: #f9f9f9;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .contact-item h3 {
+            color: #2d5016;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <h1>Hello Asha-ayurgabha</h1>
-  </body>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🌿 Asha Ayurgarbha</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Welcome to Asha Ayurgarbha</h1>
+            <p>Authentic Ayurvedic Healthcare & Wellness Center</p>
+            <button class="cta-button">Book an Appointment</button>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧘</div>
+                    <h3>Consultation</h3>
+                    <p>Expert Ayurvedic consultations tailored to your unique constitution and health needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💆</div>
+                    <h3>Abhyanga Massage</h3>
+                    <p>Traditional oil massage therapy to balance doshas and rejuvenate the body.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🍃</div>
+                    <h3>Herbal Treatment</h3>
+                    <p>Natural herbal remedies prepared using authentic Ayurvedic formulations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌡️</div>
+                    <h3>Panchakarma</h3>
+                    <p>Detoxification and rejuvenation therapy for complete wellness.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🥗</div>
+                    <h3>Diet & Nutrition</h3>
+                    <p>Personalized nutrition guidance based on Ayurvedic principles.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Wellness Programs</h3>
+                    <p>Comprehensive wellness packages for prevention and health maintenance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Asha Ayurgarbha</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Ancient Wisdom, Modern Care</h2>
+                    <p>Asha Ayurgarbha is a premier Ayurvedic clinic dedicated to restoring health and promoting wellness through the timeless principles of Ayurveda. Our team of experienced practitioners combines traditional knowledge with contemporary healthcare practices.</p>
+                    <p>We believe in treating the root cause of illness rather than just symptoms, ensuring lasting health benefits for our patients.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div>Qualified Ayurvedic Practitioners</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div>100% Natural & Organic Remedies</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div>Personalized Treatment Plans</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div>Holistic Wellness Approach</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem;">5000+ Years</h3>
+                    <p style="font-size: 1.2rem;">of Ayurvedic Excellence</p>
+                    <p style="margin-top: 2rem; opacity: 0.9;">Bringing ancient healing traditions to modern wellness</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>123 Wellness Street<br>Health City, HC 12345</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Phone</h3>
+                    <p>+1 (555) 123-4567<br>Mon-Sat: 9AM-6PM</p>
+                </div>
+                <div class="contact-item">
+                    <h3>✉️ Email</h3>
+                    <p>info@ashayurgarbha.com<br>appointments@ashayurgarbha.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Asha Ayurgarbha Clinic. All rights reserved.</p>
+            <p>Promoting Health & Wellness Through Ayurveda</p>
+        </div>
+    </footer>
+</body>
 </html>
