@@ -1,380 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asha Ayurgarbha - Ayurvedic Clinic</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #2d5016 0%, #4a7c3b 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #a8d5a8;
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, #4a7c3b 0%, #2d5016 100%);
-            color: white;
-            padding: 6rem 0;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #f4a460;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .cta-button:hover {
-            background: #e8860a;
-        }
-        
-        section {
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: #2d5016;
-            margin-bottom: 2rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: #f4a460;
-            margin: 0.5rem auto 0;
-        }
-        
-        .services {
-            background: #f9f9f9;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .service-card h3 {
-            color: #2d5016;
-            margin-bottom: 1rem;
-        }
-        
-        .about {
-            background: white;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            color: #2d5016;
-            margin-bottom: 1rem;
-        }
-        
-        .about-text p {
-            margin-bottom: 1rem;
-            color: #555;
-        }
-        
-        .features {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .feature {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-        
-        .feature-icon {
-            color: #f4a460;
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-top: 0.3rem;
-        }
-        
-        .about-image {
-            background: linear-gradient(135deg, #a8d5a8 0%, #4a7c3b 100%);
-            padding: 3rem;
-            border-radius: 8px;
-            color: white;
-            text-align: center;
-        }
-        
-        .contact {
-            background: #f9f9f9;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .contact-item h3 {
-            color: #2d5016;
-            margin-bottom: 0.5rem;
-        }
-        
-        footer {
-            background: #2d5016;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#075b43">
+<meta name="description" content="Asha AyurGarha — Ayurvedic consultation and wellness care in Malipur, Ambedkar Nagar, Uttar Pradesh.">
+<title>Asha AyurGarha | Ayurveda for Healthy Life & Happy Family</title>
+<style>
+:root{--green:#075b43;--green2:#0c7654;--leaf:#e9f5e9;--pink:#c71969;--pink2:#fce8f1;--gold:#c58b36;--ink:#19332b;--muted:#64756e;--cream:#fbfaf5;--white:#fff;--line:#e2eae3;--shadow:0 18px 55px rgba(13,67,48,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.wrap{width:min(1140px,92%);margin:auto}.topbar{background:#064a37;color:#e8f5ed;font-size:13px;padding:9px 0}.topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.topbar a{text-decoration:underline;text-underline-offset:3px}.nav{background:rgba(255,255,255,.95);position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.navin{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:20px}.brand{display:flex;align-items:center;gap:11px}.brandmark{width:48px;height:48px;border-radius:50% 50% 50% 8px;background:linear-gradient(145deg,var(--pink),#ed5b9d);display:grid;place-items:center;color:white;font-size:27px;font-family:Georgia,serif;box-shadow:0 7px 18px #c7196930}.brandname{font-family:Georgia,serif;font-size:26px;font-weight:700;line-height:1.05;color:var(--pink)}.brandname span{color:var(--green)}.tagline{font-size:10px;color:var(--muted);letter-spacing:.15px}.navlinks{display:flex;align-items:center;gap:25px;font-size:14px;font-weight:600;color:#39584c}.navlinks a:hover{color:var(--pink)}.navcta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:12px 20px;font-weight:700;cursor:pointer;transition:.2s}.navcta,.btn.primary{background:var(--pink);color:white;box-shadow:0 9px 20px #c7196925}.navcta:hover,.btn.primary:hover{transform:translateY(-2px);background:#aa1058}.btn.secondary{background:white;color:var(--green);border:1px solid #b8d3c1}.btn.secondary:hover{background:var(--leaf)}.menu{display:none;background:none;border:0;color:var(--green);font-size:25px}.hero{position:relative;overflow:hidden;padding:76px 0 70px;background:radial-gradient(ellipse at 83% 20%,#fbe7ef 0,transparent 31%),radial-gradient(ellipse at 0 90%,#e5f4e6 0,transparent 34%),linear-gradient(115deg,#fffdf9,#f7fbf4)}.hero:after{content:"";position:absolute;width:390px;height:390px;border:1px solid #d6e8d7;border-radius:50%;right:-160px;bottom:-230px;box-shadow:0 0 0 35px #e9f5e966,0 0 0 70px #e9f5e933}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:50px;position:relative;z-index:1}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green2);font-size:13px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;background:#eaf5e9;border:1px solid #d5e9d5;border-radius:99px;padding:7px 13px}.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--pink);display:inline-block}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,5.3vw,68px);line-height:1.04;letter-spacing:-1.7px;margin:20px 0 17px;color:#123f30}.hero h1 em{font-style:normal;color:var(--pink)}.hero p.lead{font-size:17px;color:#5b6f65;max-width:570px;margin:0 0 26px}.actions{display:flex;gap:12px;flex-wrap:wrap}.trustline{display:flex;align-items:center;gap:12px;margin-top:28px;color:#62766b;font-size:13px}.trusticon{width:38px;height:38px;border-radius:50%;background:white;display:grid;place-items:center;color:var(--green);box-shadow:0 4px 15px #164f3420;font-size:18px}.hero-art{min-height:400px;position:relative;display:grid;place-items:center}.hero-orb{width:min(390px,90%);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,#f7e6ee,#e8f4e5);border:1px solid #e2e8d8;display:grid;place-items:center;position:relative;box-shadow:var(--shadow)}.hero-orb:before,.hero-orb:after{content:"";position:absolute;border:1px solid #d1e4d0;border-radius:50%;inset:19px}.hero-orb:after{inset:39px;border-color:#efd0df}.lotus{font-size:150px;filter:drop-shadow(0 14px 10px #b91b6020);z-index:1}.float-card{position:absolute;background:white;border:1px solid #e6eee6;border-radius:16px;padding:13px 16px;box-shadow:var(--shadow);font-size:13px;font-weight:700;color:#315447}.float-card small{display:block;color:var(--muted);font-weight:500;font-size:11px}.float-card.one{top:45px;left:-4px}.float-card.two{bottom:45px;right:-6px}.float-icon{color:var(--pink);font-size:19px;margin-right:5px}.stats{margin-top:-1px;background:var(--green);color:white;padding:23px 0}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}.stat{padding:4px 15px;border-right:1px solid #ffffff30}.stat:last-child{border:0}.stat strong{font-family:Georgia,serif;font-size:20px;display:block}.stat span{font-size:12px;color:#d0e6d9}.section{padding:82px 0}.section-head{text-align:center;max-width:700px;margin:0 auto 38px}.kicker{color:var(--pink);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1.6px}.section h2{font-family:Georgia,serif;font-size:clamp(31px,4vw,43px);line-height:1.12;color:#143e30;margin:9px 0 12px;letter-spacing:-.7px}.section-head p{color:var(--muted);margin:0}.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:center}.about-visual{min-height:360px;border-radius:28px;background:linear-gradient(140deg,#e9f5e9,#f9e9f0);position:relative;display:grid;place-items:center;overflow:hidden}.about-visual:before,.about-visual:after{content:"";position:absolute;border:1px solid #c8dfcd;border-radius:50%;width:270px;height:270px}.about-visual:after{width:215px;height:215px;border-color:#e8bed2}.about-visual .plant{font-size:125px;z-index:1}.about-note{position:absolute;bottom:22px;left:22px;right:22px;background:#ffffffdc;padding:13px 15px;border-radius:14px;text-align:center;font-family:Georgia,serif;color:var(--green);font-weight:700}.about-copy p{color:#63756b}.ticks{list-style:none;padding:0;margin:22px 0;display:grid;gap:11px}.ticks li{display:flex;gap:10px;align-items:flex-start;color:#355348}.check{flex:none;width:23px;height:23px;border-radius:50%;background:#e4f3e5;color:var(--green);display:grid;place-items:center;font-size:13px;font-weight:900}.doctors{background:#f1f7ef}.doctor-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.doctor{background:white;border:1px solid #e1ebe1;border-radius:22px;padding:26px;display:flex;gap:20px;align-items:center;box-shadow:0 10px 30px #0d432f08}.doctor-avatar{width:100px;height:100px;flex:none;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#fbe5ee,#e7f3e5);font-size:44px}.doctor h3{font-family:Georgia,serif;color:var(--green);font-size:23px;margin:0 0 3px}.doctor .degree{color:var(--pink);font-size:13px;font-weight:700}.doctor p{color:var(--muted);font-size:13px;margin:8px 0 0}.treatment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.treatment{background:white;border:1px solid var(--line);border-radius:18px;padding:23px;transition:.2s}.treatment:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#c5dfca}.treatment-icon{width:48px;height:48px;border-radius:14px;background:var(--pink2);display:grid;place-items:center;color:var(--pink);font-size:23px;margin-bottom:14px}.treatment:nth-child(3n+2) .treatment-icon{background:#e8f4e7;color:var(--green)}.treatment h3{font-size:17px;margin:0 0 7px;color:#214a3a}.treatment p{font-size:13px;color:var(--muted);margin:0}.treatment ul{padding-left:18px;margin:11px 0 0;color:#60736a;font-size:13px}.panch{background:#fffaf6}.panch-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.panch-item{text-align:center;background:white;border:1px solid #f0e6d9;border-radius:16px;padding:20px 10px}.panch-item .symbol{font-size:34px;margin-bottom:7px}.panch-item strong{display:block;color:var(--green);font-size:15px}.panch-item span{font-size:11px;color:var(--muted)}.notice{font-size:12px;color:#7b6d60;text-align:center;margin:19px auto 0;max-width:800px}.process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:steps}.step{padding:24px;border-radius:18px;background:#f3f8f1;border:1px solid #e0ebdf}.step b{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--green);color:white;margin-bottom:13px}.step h3{margin:0 0 5px;color:var(--green);font-size:17px}.step p{margin:0;color:var(--muted);font-size:13px}.appointment{background:linear-gradient(120deg,#064a37,#0b684b);color:white;position:relative;overflow:hidden}.appointment:after{content:"";position:absolute;width:450px;height:450px;border:1px solid #ffffff17;border-radius:50%;right:-120px;top:-230px;box-shadow:0 0 0 45px #ffffff09,0 0 0 90px #ffffff06}.appointment .section-head h2{color:white}.appointment .section-head p{color:#d2e7da}.appointment-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;position:relative;z-index:1;align-items:start}.contact-info{padding:10px 0}.contact-info h3{font-family:Georgia,serif;font-size:25px;margin:0 0 13px}.contact-info p{color:#d0e4d8;font-size:14px}.contact-row{display:flex;gap:13px;align-items:flex-start;margin:20px 0;color:#f2faf4}.contact-row .ci{width:40px;height:40px;flex:none;border-radius:12px;background:#ffffff18;display:grid;place-items:center;font-size:18px}.contact-row small{display:block;color:#c2dfce}.formcard{background:white;color:var(--ink);border-radius:22px;padding:27px;box-shadow:0 20px 50px #003a272e}.formcard h3{font-family:Georgia,serif;font-size:24px;margin:0 0 4px;color:var(--green)}.formcard>p{font-size:13px;color:var(--muted);margin:0 0 20px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#496357}.field input,.field select,.field textarea{width:100%;border:1px solid #dce6de;border-radius:10px;padding:11px 12px;outline:none;background:#fcfdfb;color:var(--ink);font-size:14px}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green2);box-shadow:0 0 0 3px #0c765415}.field textarea{min-height:85px;resize:vertical}.formcard .btn{width:100%;margin-top:17px;border-radius:11px}.formhint{font-size:11px;color:#7a8a80;text-align:center;margin-top:10px}.contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.contact-actions a{border:1px solid #ffffff65;border-radius:99px;padding:10px 14px;font-size:13px;font-weight:700}.contact-actions a:hover{background:#ffffff16}.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}.faq article{background:white;border:1px solid var(--line);border-radius:15px;padding:18px}.faq h3{font-size:15px;margin:0 0 6px;color:var(--green)}.faq p{font-size:13px;color:var(--muted);margin:0}.footer{background:#043e2e;color:#d9e9df;padding:32px 0 22px}.footer-main{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.footer .brandname{color:#ff7bb4}.footer .brandname span{color:white}.footer small{color:#b9d3c4}.footer-bottom{border-top:1px solid #ffffff22;margin-top:23px;padding-top:16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11px;color:#b7d0c1}.float-whatsapp{position:fixed;right:20px;bottom:20px;z-index:20;width:57px;height:57px;border-radius:50%;background:#20b765;color:white;display:grid;place-items:center;font-size:27px;box-shadow:0 8px 25px #053e2d40;border:3px solid white}.float-whatsapp:hover{transform:translateY(-3px)}.mobile-cta{display:none}
+@media(max-width:850px){.navlinks{gap:13px;font-size:12px}.navcta{padding:10px 13px;font-size:12px}.hero-grid{gap:20px}.hero-art{min-height:320px}.lotus{font-size:120px}.treatment-grid{grid-template-columns:repeat(2,1fr)}.panch-grid{grid-template-columns:repeat(3,1fr)}.about-grid{gap:30px}}
+@media(max-width:650px){.topbar .wrap{justify-content:center;text-align:center}.navin{min-height:68px}.menu{display:block}.navlinks{display:none;position:absolute;left:0;right:0;top:68px;background:white;padding:15px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:11px 0;border-bottom:1px solid #edf1ed;font-size:14px}.navlinks a:last-child{border:0}.navcta{display:none}.hero{padding:53px 0 42px}.hero-grid{grid-template-columns:1fr;text-align:center}.hero h1{font-size:45px}.hero p.lead{font-size:15px;margin-left:auto;margin-right:auto}.actions{justify-content:center}.trustline{justify-content:center}.hero-art{min-height:275px}.hero-orb{width:260px}.lotus{font-size:100px}.float-card.one{left:0;top:15px}.float-card.two{right:0;bottom:13px}.stats-grid{grid-template-columns:1fr;gap:12px}.stat{border:0;border-bottom:1px solid #ffffff30;padding-bottom:12px}.stat:last-child{border:0;padding-bottom:0}.section{padding:60px 0}.about-grid{grid-template-columns:1fr}.about-visual{min-height:270px}.about-visual .plant{font-size:100px}.doctor-grid{grid-template-columns:1fr}.doctor{padding:20px}.doctor-avatar{width:78px;height:78px;font-size:35px}.doctor h3{font-size:20px}.treatment-grid{grid-template-columns:1fr 1fr;gap:11px}.treatment{padding:16px}.treatment h3{font-size:15px}.treatment p,.treatment ul{font-size:12px}.treatment-icon{width:40px;height:40px;font-size:20px}.panch-grid{grid-template-columns:repeat(2,1fr)}.panch-item:last-child{grid-column:1/-1}.process{grid-template-columns:1fr}.appointment-grid{grid-template-columns:1fr;gap:20px}.formcard{padding:20px}.faq{grid-template-columns:1fr}.mobile-cta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:19;background:white;padding:9px 12px calc(9px + env(safe-area-inset-bottom));gap:9px;box-shadow:0 -5px 20px #123f3015}.mobile-cta a{flex:1;text-align:center;padding:10px;border-radius:10px;font-size:13px;font-weight:800}.mobile-cta .call{background:#eaf4e9;color:var(--green)}.mobile-cta .book{background:var(--pink);color:white}.float-whatsapp{bottom:78px;right:15px;width:50px;height:50px;font-size:23px}.footer-bottom{padding-bottom:55px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">🌿 Asha Ayurgarbha</div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Welcome to Asha Ayurgarbha</h1>
-            <p>Authentic Ayurvedic Healthcare & Wellness Center</p>
-            <button class="cta-button">Book an Appointment</button>
-        </div>
-    </section>
-    
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🧘</div>
-                    <h3>Consultation</h3>
-                    <p>Expert Ayurvedic consultations tailored to your unique constitution and health needs.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💆</div>
-                    <h3>Abhyanga Massage</h3>
-                    <p>Traditional oil massage therapy to balance doshas and rejuvenate the body.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🍃</div>
-                    <h3>Herbal Treatment</h3>
-                    <p>Natural herbal remedies prepared using authentic Ayurvedic formulations.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🌡️</div>
-                    <h3>Panchakarma</h3>
-                    <p>Detoxification and rejuvenation therapy for complete wellness.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🥗</div>
-                    <h3>Diet & Nutrition</h3>
-                    <p>Personalized nutrition guidance based on Ayurvedic principles.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>Wellness Programs</h3>
-                    <p>Comprehensive wellness packages for prevention and health maintenance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Asha Ayurgarbha</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Ancient Wisdom, Modern Care</h2>
-                    <p>Asha Ayurgarbha is a premier Ayurvedic clinic dedicated to restoring health and promoting wellness through the timeless principles of Ayurveda. Our team of experienced practitioners combines traditional knowledge with contemporary healthcare practices.</p>
-                    <p>We believe in treating the root cause of illness rather than just symptoms, ensuring lasting health benefits for our patients.</p>
-                    <div class="features">
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div>Qualified Ayurvedic Practitioners</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div>100% Natural & Organic Remedies</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div>Personalized Treatment Plans</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div>Holistic Wellness Approach</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <h3 style="font-size: 2rem; margin-bottom: 2rem;">5000+ Years</h3>
-                    <p style="font-size: 1.2rem;">of Ayurvedic Excellence</p>
-                    <p style="margin-top: 2rem; opacity: 0.9;">Bringing ancient healing traditions to modern wellness</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>📍 Location</h3>
-                    <p>123 Wellness Street<br>Health City, HC 12345</p>
-                </div>
-                <div class="contact-item">
-                    <h3>📞 Phone</h3>
-                    <p>+1 (555) 123-4567<br>Mon-Sat: 9AM-6PM</p>
-                </div>
-                <div class="contact-item">
-                    <h3>✉️ Email</h3>
-                    <p>info@ashayurgarbha.com<br>appointments@ashayurgarbha.com</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Asha Ayurgarbha Clinic. All rights reserved.</p>
-            <p>Promoting Health & Wellness Through Ayurveda</p>
-        </div>
-    </footer>
-</body>
-</html>
+<div class="topbar"><div class="wrap"><span>🌿 Ayurveda for a healthy life & a happy family</span><span>Malipur, Ambedkar Nagar, U.P. &nbsp;·&nbsp; <a href="tel:+918840039866">Call: 88400 39866</a></span></div></div>
+<header class="nav"><div class="wrap navin">
+<a class="brand" href="#home" aria-label="Asha AyurGarha home"><span class="brandmark">अ</span><span><span class="brandname">Asha <span>AyurGarha</span></span><span class="tagline">Ayurveda for Healthy Life & Happy Family</span></span></a>
+<button class="menu" aria-label="Toggle navigation" onclick="document.querySelector('.navlinks').classList.toggle('open')">☰</button>
+<nav class="navlinks" aria-label="Main navigation"><a href="#about">About</a><a href="#doctors">Our Doctors</a><a href="#treatments">Treatments</a><a href="#panchakarma">Panchakarma</a><a href="#contact">Contact</a></nav>
+<a class="navcta" href="#contact">Book Appointment ↗</a>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid">
+<div><span class="eyebrow"><i></i> Traditional wisdom · Personal care</span><h1>Find your path to <em>better health.</em></h1><p class="lead">Personalized Ayurvedic consultations and wellness care for every stage of life—rooted in traditional knowledge and guided by your individual needs.</p><div class="actions"><a class="btn primary" href="#contact">Book a Consultation <span>→</span></a><a class="btn secondary" href="https://wa.me/918840039866?text=Namaste%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation%20at%20Asha%20AyurGarha." target="_blank" rel="noopener">☏ WhatsApp Us</a></div><div class="trustline"><span class="trusticon">✿</span><span>Care for women, men & families<br><strong style="color:#315447">Consultation by appointment</strong></span></div></div>
+<div class="hero-art"><div class="hero-orb"><span class="lotus">🪷</span></div><div class="float-card one"><span class="float-icon">✦</span>Whole-person wellness<small>Body · Mind · Lifestyle</small></div><div class="float-card two"><span class="float-icon">❀</span>Ayurvedic care<small>Personalized consultations</small></div></div>
+</div></section>
+<div class="stats"><div class="wrap stats-grid"><div class="stat"><strong>Women’s Wellness</strong><span>Support through every life stage</span></div><div class="stat"><strong>Men’s Wellness</strong><span>Private, respectful consultations</span></div><div class="stat"><strong>Ayurvedic Therapies</strong><span>Care planned around your needs</span></div></div></div>
+<section class="section" id="about"><div class="wrap about-grid"><div class="about-visual"><span class="plant">🌿</span><div class="about-note">परंपरा की ओर, स्वस्थ जीवन की ओर</div></div><div class="about-copy"><span class="kicker">Welcome to Asha AyurGarha</span><h2>Traditional Ayurveda, with care that starts by listening.</h2><p>At Asha AyurGarha, we welcome individuals and families seeking Ayurvedic guidance for health and wellbeing. Our approach begins with understanding your concerns, health history and daily routine, then discussing care options suited to you.</p><ul class="ticks"><li><span class="check">✓</span><span>One-to-one consultation in a respectful, comfortable setting.</span></li><li><span class="check">✓</span><span>Care discussions informed by your symptoms, history and individual needs.</span></li><li><span class="check">✓</span><span>Clear guidance on treatment options, follow-up and when other medical care may be needed.</span></li></ul><a class="btn secondary" href="#doctors">Meet Our Doctors →</a></div></div></section>
+<section class="section doctors" id="doctors"><div class="wrap"><div class="section-head"><span class="kicker">Your care team</span><h2>Meet our doctors</h2><p>Get to know the practitioners you can speak with about your health concerns.</p></div><div class="doctor-grid">
+<article class="doctor"><div class="doctor-avatar">👨🏻‍⚕️</div><div><h3>Dr. Anshuman Mishra</h3><div class="degree">BAMS, PGDM (Ayurveda)</div><p>Ayurvedic consultation and individualized wellness guidance.</p></div></article>
+<article class="doctor"><div class="doctor-avatar">👨🏻‍⚕️</div><div><h3>Dr. Manu Mishra</h3><div class="degree">BAMS, MS (Ayurveda)</div><p>Ayurvedic consultation and care planning for individual needs.</p></div></article>
+</div></div></section>
+<section class="section" id="treatments"><div class="wrap"><div class="section-head"><span class="kicker">How we may help</span><h2>Treatments & consultation areas</h2><p>Explore the concerns for which patients may seek an appointment. A doctor will assess suitability and explain available options.</p></div><div class="treatment-grid">
+<article class="treatment"><div class="treatment-icon">🌸</div><h3>Women’s Wellness</h3><p>Supportive consultation for reproductive and menstrual health concerns.</p><ul><li>PCOS / PCOD</li><li>Irregular or heavy periods</li><li>Ovarian cysts & fibroids</li><li>Endometriosis-related concerns</li><li>Vaginal discharge or pelvic discomfort</li></ul></article>
+<article class="treatment"><div class="treatment-icon">🌿</div><h3>Men’s Wellness</h3><p>Confidential consultation for men’s reproductive and sexual health concerns.</p><ul><li>Fertility-related concerns</li><li>Low sperm count</li><li>Erectile difficulties</li><li>Low libido</li><li>Other intimate health concerns</li></ul></article>
+<article class="treatment"><div class="treatment-icon">🧘</div><h3>Joint & Mobility Care</h3><p>Assessment and supportive care discussions for musculoskeletal concerns.</p><ul><li>Arthritis and joint pain</li><li>Sciatica-related pain</li><li>Back and body discomfort</li><li>Mobility and daily function</li></ul></article>
+<article class="treatment"><div class="treatment-icon">🍃</div><h3>Skin & Hair Concerns</h3><p>Ayurvedic consultation for selected skin and hair concerns.</p><ul><li>Common skin conditions</li><li>Hair and scalp concerns</li><li>Personalized lifestyle guidance</li></ul></article>
+<article class="treatment"><div class="treatment-icon">☀️</div><h3>Headache & Wellbeing</h3><p>Consultation for recurring discomfort and general wellness needs.</p><ul><li>Migraine and headaches</li><li>Sleep and stress-related concerns</li><li>General wellness guidance</li></ul></article>
+<article class="treatment"><div class="treatment-icon">🪷</div><h3>Personalized Ayurveda</h3><p>Discuss traditional Ayurvedic approaches for other health concerns.</p><ul><li>Individual assessment</li><li>Diet and daily-routine guidance</li><li>Follow-up care planning</li></ul></article>
+</div><p class="notice">The conditions listed are areas for consultation, not a promise of diagnosis, cure or outcome. Treatment is recommended only after an appropriate clinical assessment.</p></div></section>
+<section class="section panch" id="panchakarma"><div class="wrap"><div class="section-head"><span class="kicker">Traditional therapies</span><h2>Panchakarma & Ayurvedic procedures</h2><p>Where clinically appropriate, the doctor may discuss traditional therapies and explain their purpose, preparation, risks and aftercare.</p></div><div class="panch-grid"><div class="panch-item"><div class="symbol">🪔</div><strong>Vamana</strong><span>Therapeutic emesis</span></div><div class="panch-item"><div class="symbol">🌿</div><strong>Virechana</strong><span>Therapeutic purgation</span></div><div class="panch-item"><div class="symbol">🧴</div><strong>Basti</strong><span>Medicated enema therapy</span></div><div class="panch-item"><div class="symbol">🌺</div><strong>Uttar Basti</strong><span>Specialized procedure</span></div><div class="panch-item"><div class="symbol">🧘</div><strong>Other therapies</strong><span>As assessed by the doctor</span></div></div><p class="notice">Not every therapy is suitable for every person. Procedures are considered only after a consultation and informed discussion.</p></div></section>
+<section class="section"><div class="wrap"><div class="section-head"><span class="kicker">Your visit</span><h2>Simple steps to get started</h2><p>We’ll help you understand the next step before you begin.</p></div><div class="process"><article class="step"><b>1</b><h3>Request an appointment</h3><p>Call or send your preferred date and a short note about your concern.</p></article><article class="step"><b>2</b><h3>Meet the doctor</h3><p>Discuss your symptoms, health history and questions during consultation.</p></article><article class="step"><b>3</b><h3>Understand your care plan</h3><p>Review suitable options, expected follow-up and any recommended referrals.</p></article></div></div></section>
+<section class="section appointment" id="contact"><div class="wrap"><div class="section-head"><span class="kicker" style="color:#f7b4d2">Get in touch</span><h2>Let’s plan your consultation.</h2><p>Send an appointment request. Our team can confirm availability and details with you.</p></div><div class="appointment-grid"><div class="contact-info"><h3>Asha AyurGarha</h3><p>Ayurveda for Healthy Life & Happy Family</p><div class="contact-row"><span class="ci">⌖</span><div><strong>Visit us</strong><small>Triveni Hospital, Malipur, Ambedkar Nagar,<br>Uttar Pradesh – 224159</small></div></div><div class="contact-row"><span class="ci">☎</span><div><strong>Call for appointments</strong><small><a href="tel:+918840039866">+91 88400 39866</a><br><a href="tel:+918299716356">+91 82997 16356</a></small></div></div><div class="contact-row"><span class="ci">◷</span><div><strong>Appointment hours</strong><small>Please call to confirm clinic timings and availability.</small></div></div><div class="contact-actions"><a href="tel:+918840039866">☎ Call now</a><a href="https://wa.me/918840039866?text=Namaste%2C%20I%20would%20like%20to%20enquire%20about%20an%20appointment." target="_blank" rel="noopener">◉ WhatsApp</a></div></div>
+<form class="formcard" id="appointmentForm"><h3>Book an appointment</h3><p>Fill in your details and continue on WhatsApp to send your request.</p><div class="formgrid"><div class="field"><label for="name">Your name *</label><input id="name" name="name" placeholder="Full name" required></div><div class="field"><label for="phone">Mobile number *</label><input id="phone" name="phone" type="tel" inputmode="tel" placeholder="10-digit mobile number" required pattern="[0-9+\s-]{10,16}"></div><div class="field"><label for="visit">Preferred date</label><input id="visit" name="visit" type="date"></div><div class="field"><label for="doctor">Preferred doctor</label><select id="doctor" name="doctor"><option value="No preference">No preference</option><option>Dr. Anshuman Mishra</option><option>Dr. Manu Mishra</option></select></div><div class="field full"><label for="concern">Area of concern *</label><select id="concern" name="concern" required><option value="">Choose an option</option><option>Women’s wellness</option><option>Men’s wellness</option><option>Joint or mobility care</option><option>Skin or hair concerns</option><option>Headache or general wellbeing</option><option>Panchakarma / Ayurvedic therapy enquiry</option><option>Other</option></select></div><div class="field full"><label for="message">Anything you’d like us to know? (optional)</label><textarea id="message" name="message" placeholder="A short note only. Please avoid sharing highly sensitive medical details here."></textarea></div></div><button class="btn primary" type="submit">Send appointment request on WhatsApp →</button><div class="formhint">This sends a request only. Your appointment is confirmed after the clinic replies.</div></form></div></div></section>
+<section class="section"><div class="wrap"><div class="section-head"><span class="kicker">Helpful to know</span><h2>Frequently asked questions</h2></div><div class="faq"><article><h3>Do I need an appointment?</h3><p>We recommend contacting the clinic first so the team can confirm availability and guide you.</p></article><article><h3>Will a treatment be suggested immediately?</h3><p>The doctor will first understand your concern and assess whether an Ayurvedic approach is appropriate.</p></article><article><h3>Can I continue my current medicines?</h3><p>Do not stop or change prescribed medicines without speaking to the clinician who prescribed them. Share your current medicines during consultation.</p></article><article><h3>What if I have urgent symptoms?</h3><p>For severe, sudden or emergency symptoms, seek urgent medical care rather than waiting for an appointment.</p></article></div></div></section>
+</main>
+<footer class="footer"><div class="wrap"><div class="footer-main"><a class="brand" href="#home"><span class="brandmark">अ</span><span><span class="brandname">Asha <span>AyurGarha</span></span><span class="tagline" style="color:#b9d3c4">Ayurveda for Healthy Life & Happy Family</span></span></a><div><strong>Dr. Anshuman Mishra</strong><br><small>BAMS, PGDM (Ayurveda)</small></div><div><strong>Dr. Manu Mishra</strong><br><small>BAMS, MS (Ayurveda)</small></div><div><strong>Call us</strong><br><small>88400 39866 · 82997 16356</small></div></div><div class="footer-bottom"><span>© <span id="year"></span> Asha AyurGarha. All rights reserved.</span><span>Website information is general and does not replace professional medical advice.</span></div></div></footer>
+<a class="float-whatsapp" aria-label="Chat on WhatsApp" href="https://wa.me/918840039866?text=Namaste%2C%20I%20have%20a%20question%20for%20Asha%20AyurGarha." target="_blank" rel="noopener">◉</a>
+<div class="mobile-cta"><a class="call" href="tel:+918840039866">☎ Call clinic</a><a class="book" href="#contact">Book appointment →</a></div>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('appointmentForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const f=new FormData(this);
+ const lines=['Namaste, I would like to request an appointment at Asha AyurGarha.','Name: '+f.get('name'),'Mobile: '+f.get('phone'),'Preferred date: '+(f.get('visit')||'Flexible'),'Preferred doctor: '+f.get('doctor'),'Area of concern: '+f.get('concern'),'Additional note: '+(f.get('message')||'None'),'Please let me know the available appointment time.'];
+ window.open('https://wa.me/918840039866?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
+});
+</script>
+</body></html>
